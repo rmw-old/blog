@@ -1,0 +1,22 @@
+{
+  "name": "@rmw/xxx",
+  "version": "0.0.0",
+  "repository": "https://github.com/rmw-lib/xxx",
+  "author": "i@rmw.link",
+  "license": "MulanPSL-2.0",
+  "exports": {
+    ".": "./lib/index.js",
+    "./": "./lib/"
+  },
+  "files": [
+    "/lib"
+  ],
+  "dependencies": {
+    "docsify-cli": "^4.4.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "prepare": "./.git/hooks/pre-commit && rm -rf lib && rsync -av --include='*/' --include='*.js' --include='*.mjs' --exclude=* src/ lib/ && npx coffee --compile --output lib src/"
+  },
+  "type": "module"
+}
